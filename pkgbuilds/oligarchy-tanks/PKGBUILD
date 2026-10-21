@@ -1,7 +1,7 @@
 # Maintainer: NickmDrummer <https://github.com/NickmDrummer>
 
 pkgname=oligarchy-tanks
-pkgver=0.2.2
+pkgver=0.2.1
 pkgrel=1
 pkgdesc='Retro 2-player local tank battle vs AI (Battle City style, Qt 6)'
 url='https://github.com/NickmDrummer/oligarchy-tanks'
@@ -11,7 +11,7 @@ depends=('qt6-base' 'qt6-declarative' 'qt6-wayland' 'qt6-multimedia' 'xdg-deskto
 makedepends=('gcc' 'make')
 install=oligarchy-tanks.install
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('2ae28b4487e15c3673b7b694f5f86b82c8ca765ec2f631a16f6e6c5cffc9aeb3')
+sha256sums=('512f9588f3ab4827bbd0ef11571ffd0c8c5bac05a61744f61254444921e1207a')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
@@ -28,15 +28,6 @@ package() {
   install -Dm644 src/fonts/OFL.txt "$pkgdir/usr/share/licenses/$pkgname/OFL-Silkscreen.txt"
   install -Dm644 src/fonts/OFL-DepartureMono.txt "$pkgdir/usr/share/licenses/$pkgname/OFL-DepartureMono.txt"
   install -Dm644 src/fonts/OmarchyFont-LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/OmarchyFont-MIT.txt"
-  # The icon: a raster redrawn for the small sizes, in the standard hicolor
-  # directories. The launcher paints app icons at 18 px, where the detailed
-  # drawing turns into a blur, so the raster is the one it picks up. The
-  # scalable drawing is installed under its own name for the places that ask
-  # for a big one (it must not shadow the raster in the icon index).
-  for size in 16 24 32 48 64 128 256; do
-    install -Dm644 "src/icons/small/oligarchy-tanks-$size.png" \
-      "$pkgdir/usr/share/icons/hicolor/${size}x${size}/apps/oligarchy-tanks.png"
-  done
-  install -Dm644 pkgbuild/oligarchy-tanks.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/oligarchy-tanks-large.svg"
+  install -Dm644 pkgbuild/oligarchy-tanks.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/oligarchy-tanks.svg"
   install -Dm644 pkgbuild/oligarchy-tanks.desktop "$pkgdir/usr/share/applications/oligarchy-tanks.desktop"
 }
