@@ -1,17 +1,17 @@
 # Maintainer: NickmDrummer <https://github.com/NickmDrummer>
 
 pkgname=oligarchy-tanks
-pkgver=0.2.2
+pkgver=0.2.4
 pkgrel=1
 pkgdesc='Retro 2-player local tank battle vs AI (Battle City style, Qt 6)'
 url='https://github.com/NickmDrummer/oligarchy-tanks'
 arch=('x86_64' 'aarch64')
 license=('MIT' 'OFL')
-depends=('qt6-base' 'qt6-declarative' 'qt6-wayland' 'qt6-multimedia' 'xdg-desktop-portal' 'hicolor-icon-theme')
+depends=('qt6-base' 'qt6-declarative' 'qt6-wayland' 'sdl2' 'xdg-desktop-portal' 'hicolor-icon-theme')
 makedepends=('gcc' 'make')
 install=oligarchy-tanks.install
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('14f43b6d0d2dec5b061169a44241b399f09e1f52dbb8e5b92afb8e64a7c51a54')
+sha256sums=('a555dab16a90ad37e61c500d3ab8d0f592b25678182c9ecff46b7da9f7d96f15')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
